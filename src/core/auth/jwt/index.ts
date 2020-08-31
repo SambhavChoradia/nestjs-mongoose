@@ -42,7 +42,7 @@ const validateToken = async (auth: string) => {
 	}
 	const token = auth.split(' ')[1];
 	try {
-		const decoded = jwt.verify(token, process.env.JWT_SECRET);
+		const decoded = jwt.verify(token, ACCESS_TOKEN_SECRET);
 		return decoded;
 	} catch (err) {
 		const message = 'Token error:' + (err.messgae || err.name);

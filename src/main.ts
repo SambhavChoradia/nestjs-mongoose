@@ -8,7 +8,7 @@ import {
 	ValidationPipe,
 	LoggingInterceptor,
 	DOMAIN,
-} from './core';
+} from '@core';
 
 async function bootstrap() {
 	const app = await NestFactory.create(AppModule);
@@ -29,7 +29,8 @@ async function bootstrap() {
 		.setDescription('Mongoose api docs')
 		.setVersion('1.0')
 		.addTag('Mongoose')
-		.addServer(`${DOMAIN}:${PORT}`)
+		.addServer(`http://127.0.01:${PORT}`)
+		.addServer(`http://${DOMAIN}:${PORT}`)
 		.build();
 
 	const document = SwaggerModule.createDocument(app, options);

@@ -10,7 +10,7 @@ const END_POINT: string = process.env.END_POINT || 'api/v1';
 
 // mongo
 const MONGO_URL = process.env.MONGO_URL || 'localhost';
-const MONGO_URI = `mongodb://${MONGO_URL}:${process.env.MONGO_DB}`;
+const MONGO_URI = `mongodb://${MONGO_URL}/${process.env.MONGO_DB}`;
 
 // jsonwebtoken
 const ACCESS_TOKEN_SECRET: string =

@@ -4,3 +4,4 @@ export * from './pipe';
 export * from './interceptor';
 export * from './guard';
 export * from './auth';
+export * from './decorators';

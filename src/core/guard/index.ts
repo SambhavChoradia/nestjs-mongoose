@@ -11,5 +11,6 @@ export class AuthGuard implements CanActivate {
 		}
 		const decoded = await validateToken(request.headers.authorization);
 		request.user = decoded;
+		return true;
 	}
 }
