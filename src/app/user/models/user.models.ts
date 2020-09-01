@@ -10,6 +10,15 @@ export class User extends Document {
 	@Prop({ required: true })
 	password: string;
 
+	@Prop({ required: true })
+	firstname: string;
+
+	@Prop({ required: true })
+	lastname: string;
+
+	@Prop()
+	profilePic: string;
+
 	@Prop(
 		raw({
 			addressLine1: String,

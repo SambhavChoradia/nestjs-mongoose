@@ -7,7 +7,6 @@ import {
 	Request,
 	UseGuards,
 } from '@nestjs/common';
-import { AuthService } from './auth.service';
 import {
 	ApiOperation,
 	ApiResponse,
@@ -15,10 +14,13 @@ import {
 	ApiUnauthorizedResponse,
 	ApiForbiddenResponse,
 	ApiBearerAuth,
+	ApiTags,
 } from '@nestjs/swagger';
+import { AuthService } from './auth.service';
 import { AuthDto } from './dto/auth.dto';
 import { AuthGuard, ValidationPipe } from '@core';
 
+@ApiTags('Authentication')
 @Controller('auth')
 export class AuthController {
 	constructor(private readonly authService: AuthService) {}
@@ -34,8 +36,8 @@ export class AuthController {
 		return this.authService.login(data);
 	}
 
-	@ApiOperation({ summary: 'Fetch user info' })
-	@ApiResponse({ status: HttpStatus.OK, description: 'User Profile Info' })
+	@ApiOperation({ summary: 'Fetch user Profile' })
+	@ApiResponse({ status: HttpStatus.OK, description: 'User Profile' })
 	@ApiUnauthorizedResponse({
 		status: HttpStatus.UNAUTHORIZED,
 		description: 'Unauthorized',

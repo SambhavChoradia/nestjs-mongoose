@@ -4,31 +4,24 @@ import { IsNotEmptyString } from '@core';
 import { UserAddressDto } from './user.address.dto';
 import { Type } from 'class-transformer';
 
-export class UserDto {
+export class UpdateUserDto {
 	@ApiProperty({
-		example: 'sam',
+		example: 'sambhav',
 		description: 'username',
 	})
 	@IsNotEmptyString()
 	username: string;
 
 	@ApiProperty({
-		example: 'password',
-		description: 'password',
-	})
-	@IsNotEmptyString()
-	password: string;
-
-	@ApiProperty({
 		example: 'sambhav',
-		description: 'firstname',
+		description: 'username',
 	})
 	@IsNotEmptyString()
 	firstname: string;
 
 	@ApiProperty({
-		example: 'choradia',
-		description: 'lastname',
+		example: 'sambhav',
+		description: 'username',
 	})
 	@IsNotEmptyString()
 	lastname: string;
@@ -38,12 +31,9 @@ export class UserDto {
 		format: 'binary',
 		required: false,
 	})
-	profilePic?: any;
+	profilePic: any;
 
-	@ApiProperty({
-		type: UserAddressDto,
-		required: false,
-	})
+	@ApiProperty({ type: UserAddressDto, required: false })
 	@ValidateNested({ each: true })
 	@Type(() => UserAddressDto)
 	@IsOptional()

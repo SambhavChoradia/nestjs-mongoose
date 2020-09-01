@@ -62,7 +62,7 @@ export class AuthService {
 	async getProfile(id): Promise<{}> {
 		const user = await this.userModel
 			.findOne({ _id: id })
-			.select('username address');
+			.select('username firstname lastname address profilePic');
 
 		return {
 			statusCode: HttpStatus.OK,
